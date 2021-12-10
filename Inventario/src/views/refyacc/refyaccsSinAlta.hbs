@@ -1,0 +1,47 @@
+<div class="refyaccs">
+    <div class="info">
+        <h3>Refacciones y accesorios registrados por dar de alta</h3>
+        {{#if refyaccauxes}}
+        <table class="table" width="50%" heigth="70px">
+            <thead>
+                <tr>
+                    <th>No. de resguardo</th>
+                    <th>No interno</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Ubicacion</th>
+                    <th>Estado</th>
+                    <th>Descripción</th>
+                    <th>Dar de alta</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each refyaccauxes}}
+                <tr id="resultado">
+                    <td>{{this.noresguardo}}</td>
+                    <td>{{this.nointerno}}</td>
+                    <td>{{this.nombre}}</td>
+                    <td>{{this.fecha}}</td>
+                    <td>{{this.ubicacion}}</td>
+                    <td>{{this.status}}</td>
+                    <td>{{this.descripcion}}</td>
+                    <td>
+                        <a href="/ingresar-refacciones-accesorios-sin-alta-autorizar/{{_id}}">
+                            <button class="alta">
+                                Autorizar Alta
+                            </button>
+                        </a>
+                        <a href="/ingresar-refacciones-accesorios-sin-alta-rechazar/{{_id}}">
+                            <button class="alta">
+                                Rechazar Alta
+                            </button>
+                        </a>
+                    </td>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            <h4>No se encontraron registros...</h4>
+        {{/if}}
+    </div>
+</div>

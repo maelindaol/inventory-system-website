@@ -1,0 +1,58 @@
+<div class="refyaccs">
+    <div class="info">
+        <h3>Refacciones y accesorios registrados</h3>
+
+        <form action="/jd-refacciones-accesorios-exportar/" method="GET">
+            <div class="buscar">
+                <input type="text" name="buscar" class="entradabuscar" placeholder="Ubicación/Estado" id="entrada">
+                <a href="/jd-refacciones-accesorios">
+                    <button class="btnbuscar">Descargar Excel</button>
+                </a>
+            </div>
+        </form>
+
+        <form action="/jd-refacciones-accesorios/" method="GET">
+            <div class="buscar">
+            <input type="text" name="buscar" class="entradabuscar" placeholder="Buscar..." id="entrada">
+            <button type="submit" class="btnbuscar" id="boton" value="Buscar">
+                <img src="../img/buscar.png" alt="">
+            </button>
+            </div> 
+        </form>
+        {{#if refyaccs}}
+        <table class="table" width="50%" heigth="70px">
+            <thead>
+                <tr>
+                    <th>No. de resguardo</th>
+                    <th>No interno</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Ubicacion</th>
+                    <th>Estado</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each refyaccs}}
+                <tr id="resultado">
+                    <td>{{this.noresguardo}}</td>
+                    <td>{{this.nointerno}}</td>
+                    <td>{{this.nombre}}</td>
+                    <td>{{this.fecha}}</td>
+                    <td>{{this.ubicacion}}</td>
+                    <td>{{this.status}}</td>
+                    <td>
+                        <a href="/refacciones-accesorios/ver/{{_id}}">
+                            <button>
+                                <img src="../img/ver_30.png" alt="" title="Ver">
+                            </button>
+                        </a>
+                    </td>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            <h4>No se encontraron registros...</h4>
+        {{/if}}
+    </div>
+</div>

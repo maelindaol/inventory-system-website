@@ -1,0 +1,37 @@
+<div class="conceptos">
+    <div class="info">
+        <h3>Mobiliarios y equipos de computo registrados por dar de alta</h3>
+        {{#if conceptoauxes}}
+        <table class="table" width="50%" heigth="70px">
+            <thead>
+                <tr>
+                    <th>No. de resguardo</th>
+                    <th>No interno</th>
+                    <th>Nombre</th>
+                    <th>No. de serie</th>
+                    <th>Fecha</th>
+                    <th>Ubicacion</th>
+                    <th>Estado</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each conceptoauxes}}
+                <tr id="resultado">
+                    <td>{{noresguardo}}</td>
+                    <td>{{nointerno}}</td>
+                    <td>{{nombre}}</td>
+                    <td>{{noserie}}</td>
+                    <td>{{fecha}}</td>
+                    <td>{{ubicacion}}</td>
+                    <td>{{status}}</td>
+                    <td>{{descripcion}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            <h4>No se encontraron registros...</h4>
+        {{/if}}
+    </div>
+</div>

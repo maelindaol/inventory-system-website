@@ -1,0 +1,47 @@
+<div class="inventario">
+    <h1>Añadir mobiliario y equipo de computo</h1>
+    <div class="form">
+        <form action="/mobiliario-equipo-computo" method="POST">
+            <input type="date" name="fecha" class="form-control" placeholder="Fecha" required="true" id="ingreso">
+            <script>
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = date.getMonth()+1;
+                var todayDate = String(date.getDate()).padStart(2,'0');
+                var datePattern = year + '-' + month + '-' + todayDate;
+                document.getElementById("ingreso").value = datePattern;
+                date.toDateString();
+                //document.write(date);
+            </script>
+            <input type="text" name="noresguardo" class="form-control" placeholder="No. de resguardo" required="true">
+            <input type="text" name="nointerno" class="form-control" placeholder="No. interno" required="true">
+            <input type="text" name="noserie" class="form-control" placeholder="No. de serie" required="true">
+            <h2>Tipo de mobiliario - equipo de computo:</h2>
+            <select name="nombre" id="nombre" class="nombre" required="nombre">
+                {{#if biens}} 
+                    <option value="" selected disabled>Selecciona un tipo:</option>
+                    {{#each biens}}
+                        <option>{{bien}}</option>
+                    {{/each}}
+                {{else}}
+                    <option value="" selected disabled>Ingresa tipo de bienes...</option>
+                {{/if}}
+            </select>
+            <h2>Estado:</h2>
+            <div class="radios">
+                <input type="radio" name="status" value="Activo" id="activo" checked>
+                <label for="activo">Activo</label>
+            </div>
+            <div class="radios">
+                <input type="radio" name="status" value="Dañado" id="dañado">
+                <label for="dañado">Dañado (para mantenimiento)</label>
+            </div>
+            <div class="radios">
+                <input type="radio" name="status" value="Baja" id="baja">
+                <label for="baja">Baja</label>
+            </div>
+            <textarea name="descripcion" id="descrip" cols="30" rows="10" placeholder="Descripcion" required="true"></textarea>
+            <button type="submit">Aceptar</button>
+        </form>
+    </div>
+</div>

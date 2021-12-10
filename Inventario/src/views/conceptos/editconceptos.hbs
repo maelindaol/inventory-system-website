@@ -1,0 +1,57 @@
+<div class="inventario">
+    <h1>Editar mobiliario y equipo de computo</h1>
+    <div class="form">
+        <form action="/conceptos/editar/{{conceptos._id}}" method="POST">
+            <input type="date" name="fecha" class="form-control" placeholder="Fecha" required="true" id="ingreso" value="{{conceptos.fecha}}">
+            <input type="text" name="noresguardo" class="form-control" placeholder="No. de resguardo" required="true" value="{{conceptos.noresguardo}}">
+            <input type="text" name="nointerno" class="form-control" placeholder="No. interno" required="true" value="{{conceptos.nointerno}}">
+            <input type="text" name="noserie" class="form-control" placeholder="No. de serie" required="true" value="{{conceptos.noserie}}">
+            <h2>Tipo de mobiliario - equipo de computo:</h2>
+            <select name="bien" id="bien" class="bien" required="true">
+                {{#if biens}} 
+                    <option>{{conceptos.nombre}}</option>
+                    {{#each biens}}
+                        <option>{{bien}}</option>
+                    {{/each}}
+                {{else}}
+                    <option>{{conceptos.nombre}}</option>
+                {{/if}}
+            </select>
+            <h2>Estado:</h2>
+            <div class="radios">
+                <input type="radio" name="status" value="Activo" id="activo">
+                <label for="activo">Activo</label>
+            </div>
+            <div class="radios">
+                <input type="radio" name="status" value="Dañado" id="dañado">
+                <label for="dañado">Dañado (para mantenimiento)</label>
+            </div>
+            <div class="radios">
+                <input type="radio" name="status" value="Baja" id="baja">
+                <label for="baja">Baja</label>
+            </div>
+            <h2>Ubicación:</h2>
+            <select name="ubicacion" id="ubicacion" class="ubicacion" required="true">
+                <option>{{conceptos.ubicacion}}</option>
+                <option>Almacen</option>
+                <option>CSC2</option>
+                <option>ACISCO</option>
+                <option>ACISCO2</option>
+                <option>Sala-A</option>
+                <option>Sala-B</option>
+                <option>Sala-General</option>
+                <option>Centro-de-cómputo(Reparación)</option>
+                <option>En-Garantía</option>
+            </select>
+            
+            <script>
+                $('input:radio[name="status"]').change(function(){
+                    $('select[name="ubicacion"]').attr('disabled',this.value=="Baja")
+                })
+            </script>
+
+            <textarea name="descripcion" id="descrip" cols="30" rows="10" placeholder="Descripcion" required="true">{{conceptos.descripcion}}</textarea>
+            <button type="submit">Actualizar</button>
+        </form>
+    </div>
+</div>

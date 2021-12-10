@@ -1,0 +1,77 @@
+<div class="refyaccs">
+    <div class="info">
+        <h3>Refacciones y accesorios registrados</h3>
+        <div class="alta">
+            <button type="submit" class="btnalta" onclick="location.href='/ingresar-refacciones-accesorios'">Añadir refacciones/accesorios</button>
+        </div>
+        <div class="alta">
+            <button type="submit" class="btnalta" onclick="location.href='/refacciones-accesorios-sin-alta'">Refacciones/accesorios sin alta</button>
+        </div>
+        <div class="tipoMobiliario">
+            <button type="submit" class="btntipo" onclick="location.href='/ingresar-tipo-refacciones-accesorios'">Añadir tipo</button>
+        </div>
+
+        <form action="/refacciones-accesorios-exportar/" method="GET">
+            <div class="buscar">
+                <input type="text" name="buscar" class="entradabuscar" placeholder="Ubicación/Estado" id="entrada">
+                <a href="/refacciones-accesorios">
+                    <button class="btnbuscar">Descargar Excel</button>
+                </a>
+            </div>
+        </form>
+
+        <form action="/refacciones-accesorios/" method="GET">
+            <div class="buscar">
+            <input type="text" name="buscar" class="entradabuscar" placeholder="Buscar..." id="entrada">
+            <button type="submit" class="btnbuscar" id="boton" value="Buscar">
+                <img src="../img/buscar.png" alt="">
+            </button>
+            </div> 
+        </form>
+        {{#if refyaccs}}
+        <table class="table" width="50%" heigth="70px">
+            <thead>
+                <tr>
+                    <th>No. de resguardo</th>
+                    <th>No interno</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Ubicacion</th>
+                    <th>Estado</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each refyaccs}}
+                <tr id="resultado">
+                    <td>{{this.noresguardo}}</td>
+                    <td>{{this.nointerno}}</td>
+                    <td>{{this.nombre}}</td>
+                    <td>{{this.fecha}}</td>
+                    <td>{{this.ubicacion}}</td>
+                    <td>{{this.status}}</td>
+                    <td>
+                        <a href="/refacciones-accesorios/ver/{{_id}}">
+                            <button>
+                                <img src="../img/ver_30.png" alt="" title="Ver">
+                            </button>
+                        </a>
+                        <a href="/refacciones-accesorios/editar/{{_id}}">
+                            <button>
+                                <img src="../img/edit_30.png" alt="" title="Editar" >
+                            </button>
+                        </a>
+                        <a href="/refacciones-accesorios/garantia/{{_id}}">
+                            <button>
+                                <img src="../img/garantia.png" alt="" title="Añadir/Editar garantía"> 
+                            </button>
+                        </a>
+                    </td>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            <h4>No se encontraron registros...</h4>
+        {{/if}}
+    </div>
+</div>

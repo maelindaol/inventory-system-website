@@ -1,0 +1,43 @@
+<div class="conceptos">
+    <div class="info">
+        <h3>Garantías de refacciones y accesorios registradas</h3>
+        
+        <form action="/garantias-refacciones-accesorios/" method="GET">
+            <div class="buscar">
+                <input type="text" name="buscar" class="entradabuscar" placeholder="Buscar..." id="entrada">
+                <button type="submit" class="btnbuscar" id="boton" value="Buscar">
+                    <img src="../img/buscar.png" alt="">
+                </button>
+            </div> 
+        </form>
+
+        {{#if refyaccs}}
+            <table class="table" width="50%" heigth="70px">
+            <thead>
+                <tr>
+                    <th>No. de resguardo</th>
+                    <th>No. de interno</th>
+                    <th>Nombre</th>
+                    <th>Proveedor</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha de vencimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each refyaccs}}
+                <tr>
+                    <td>{{noresguardo}}</td>
+                    <td>{{nointerno}}</td>
+                    <td>{{nombre}}</td>
+                    <td>{{garantia.proveedor}}</td>                    
+                    <td>{{fecha}}</td>
+                    <td>{{garantia.fechavencimiento}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+            </table>
+        {{else}}
+            <h4>No se encontraron registros...</h4>
+        {{/if}}
+    </div>
+</div>

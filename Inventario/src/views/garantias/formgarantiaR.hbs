@@ -1,0 +1,25 @@
+<div class="garantia">
+    <h1>Garantía</h1>
+    <div class="form">
+        <form action="/refacciones-accesorios/garantia/{{refyaccs._id}}" method="POST"> 
+            <h2>Fecha de vencimiento:</h2>
+            <input type="date" name="fechavencimiento" class="form-control" placeholder="Fecha" required="true" id="vence">
+            <script>
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = date.getMonth()+1;
+                var todayDate = String(date.getDate()).padStart(2,'0');
+                var datePattern = year + '-' + month + '-' + todayDate;
+                document.getElementById("vence").value = datePattern;
+                date.toDateString();
+                //document.write(date);
+            </script>
+            <select name="proveedor" id="proveedor" class="proveedor" required="true">
+                <option value="Proveedor">Proveedor</option>
+                <option value="Proveedor1">Proveedor1</option>
+                <option value="Proveedor2">Proveedor2</option>
+            </select>
+            <button type="submit">Aceptar</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="historial">
+    <h1>Historial</h1>
+    <div class="info">
+            <h3>Acciones de los bienes</h3>
+            
+            <form action="/historial/" method="GET">
+                <div class="buscar">
+                    <input type="text" name="buscar" class="entradabuscar" placeholder="Buscar..." id="entrada">
+                    <button type="submit" class="btnbuscar" id="boton" value="Buscar">
+                        <img src="../img/buscar.png" alt="">
+                    </button>
+                </div> 
+            </form>
+
+            {{#if historial}}
+            <table class="table" width="50%" heigth="70px">
+                <thead>
+                    <tr>
+                        <th>Acción</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each historial}}
+                    <tr id="resultado">
+                        <td>{{message}}</td>
+                        <td>{{timestamp}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+                <h4>No se encontraron registros...</h4>
+            {{/if}}
+    </div>
+</div>

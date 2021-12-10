@@ -1,0 +1,61 @@
+<div class="conceptos">
+    <div class="info">
+        <h3>Mobiliarios y equipos de computo registrados</h3>
+
+        <form action="/jd-mobiliario-equipo-computo-exportar/" method="GET">
+            <div class="buscar">
+                <input type="text" name="buscar" class="entradabuscar" placeholder="Ubicación/Estado" id="entrada">
+                <a href="/jd-mobiliario-equipo-computo">
+                    <button class="btnbuscar">Descargar Excel</button>
+                </a>
+            </div>
+        </form>
+
+        <form action="/jd-mobiliario-equipo-computo/" method="GET">
+            <div class="buscar">
+            <input type="text" name="buscar" class="entradabuscar" placeholder="Buscar..." id="entrada">
+            <button type="submit" class="btnbuscar" id="boton" value="Buscar">
+                <img src="../img/buscar.png" alt="">
+            </button>
+            </div> 
+        </form>
+        {{#if conceptos}}
+        <table class="table" width="50%" heigth="70px">
+            <thead>
+                <tr>
+                    <th>No. de resguardo</th>
+                    <th>No interno</th>
+                    <th>Nombre</th>
+                    <th>No. de serie</th>
+                    <th>Fecha</th>
+                    <th>Ubicacion</th>
+                    <th>Estado</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each conceptos}}
+                <tr id="resultado">
+                    <td>{{noresguardo}}</td>
+                    <td>{{nointerno}}</td>
+                    <td>{{nombre}}</td>
+                    <td>{{noserie}}</td>
+                    <td>{{fecha}}</td>
+                    <td>{{ubicacion}}</td>
+                    <td>{{status}}</td>
+                    <td>
+                        <a href="/conceptos/ver/{{_id}}">
+                            <button>
+                                <img src="../img/ver_30.png" alt="" title="Ver">
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            <h4>No se encontraron registros...</h4>
+        {{/if}}
+    </div>
+</div>

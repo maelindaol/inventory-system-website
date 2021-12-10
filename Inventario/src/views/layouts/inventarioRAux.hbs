@@ -1,0 +1,33 @@
+<div class="inventario">
+    <h1>Añadir refacciones y accesorios</h1>
+    <div class="form">
+        <form action="/al-refacciones-accesorios" method="POST">
+            <input type="date" name="fecha" class="form-control" placeholder="Fecha" required="true" id="ingreso">
+            <script>
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = date.getMonth()+1;
+                var todayDate = String(date.getDate()).padStart(2,'0');
+                var datePattern = year + '-' + month + '-' + todayDate;
+                document.getElementById("ingreso").value = datePattern;
+                date.toDateString();
+                //document.write(date);
+            </script>
+            <input type="text" name="noresguardo" class="form-control" placeholder="No. de resguardo" required="true">
+            <input type="text" name="nointerno" class="form-control" placeholder="No. interno" required="true">
+            <h2>Tipo de refacción - accesorio:</h2>
+            <select name="nombre" id="nombre" class="nombre" required="nombre">
+                {{#if bienrs}}
+                    <option value="" selected disabled>Selecciona un tipo:</option>
+                    {{#each bienrs}}
+                        <option>{{bienr}}</option>
+                    {{/each}}
+                {{else}}
+                    <option value="" selected disabled>Ingresa tipo de bienes...</option>
+                {{/if}}
+            </select>
+            <textarea name="descripcion" id="descrip" cols="30" rows="10" placeholder="Descripcion" required="true"></textarea>
+            <button type="submit">Aceptar</button>
+        </form>
+    </div>
+</div>

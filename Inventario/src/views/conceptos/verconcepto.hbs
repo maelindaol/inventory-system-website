@@ -1,0 +1,54 @@
+<div class="verBien">
+    <div class="info">
+        <h3>Mobiliario o Equipo de computo</h3>
+        <div class="tabla">
+            <table class="table" width="50%" heigth="70px">
+                <thead>
+                <tr>
+                    <th>No. de resguardo</th>
+                    <th>No interno</th>
+                    <th>No. de serie</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Ubicacion</th>
+                    <th>Estado</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="resultado">
+                    <td>{{conceptos.noresguardo}}</td>
+                    <td>{{conceptos.nointerno}}</td>
+                    <td>{{conceptos.noserie}}</td>
+                    <td>{{conceptos.nombre}}</td>
+                    <td>{{conceptos.fecha}}</td>
+                    <td>{{conceptos.ubicacion}}</td>
+                    <td>{{conceptos.status}}</td>
+                    <td>{{conceptos.descripcion}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        {{#if conceptos.garantia.proveedor}}
+        <h3>Garantía</h3>
+        <div class="tabla">
+            <table class="table" width="50%" heigth="70px">
+                <thead>
+                <tr>
+                    <th>Proveedor</th>
+                    <th>Fecha de vencimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="resultado">
+                    <td>{{conceptos.garantia.proveedor}}</td> 
+                    <td>{{conceptos.garantia.fechavencimiento}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        {{else}}
+            <h4>Garantía no registrada...</h4>
+        {{/if}}
+    </div>
+</div>

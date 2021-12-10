@@ -1,0 +1,40 @@
+<div class="ingresarBien">
+    <div class="info">
+        <h3>Mobiliarios y equipos de computo a ingresar</h3>
+            <form action="/ingresar-tipo-mobiliario-equipo-computo" method="POST">
+                <div class="ingresar">
+                    <button type="submit" class="btningresar">Ingresar</button>
+                    <input type="text" name="bien" class="entrada" placeholder="Nombre" required="true">                
+                </div>
+            </form>
+        {{#if biens}}
+        <div class="tabla">
+            <table class="table" width="50%" heigth="70px">
+            <thead>
+                <tr>
+                    <th>Nombres:</th>
+                    <th>Eliminar:</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each biens}}
+                <tr id="resultado">
+                    <td>{{bien}}</td>
+                    <td>
+                        <a href="/ingresar-tipo-mobiliario-equipo-computo/delete/{{_id}}">
+                            <button>
+                                <img src="../img/delete_40.png" alt="" title="Eliminar">
+                                Eliminar 
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            <h4>No se encontraron registros...</h4>
+        {{/if}}
+        </div>
+    </div>
+</div>

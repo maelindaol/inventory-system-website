@@ -1,0 +1,77 @@
+*Instalar:
+
+npm i express express-handlebars express-session method-override mongoose passport passport-local bcryptjs connect-flash
+npm i nodemon -D
+npm i mongoose-date-format
+npm i mongoose-autopopulate
+npm i moment
+npm i jsonwebtoken -S
+npm i cors dotenv morgan helmet
+npm i @babel/core @babel/cli @babel/node @babel/preset-env -D
+npm i xlsx
+npm i xlsx faker ejs
+npm i winston
+npm i winston-mongodb
+npm i morgan
+npm i xlsx
+npm install moment json2csv mongo-date-query --save
+npm i mongoose-auto-increment
+
+
+
+*Ejecutar:
+
+nodemon src/index
+
+sudo service mongod start  
+ó
+mongod
+
+*Navegador:
+
+http://localhost:3000/
+
+*Consultar en la base de datos
+mongo
+
+*ver bases de datos
+show dbs
+
+*usar una bd
+use sistema-inventario
+
+*borrar base de datos:
+db.dropDatabase()
+
+*mostrar colecciones de la bd
+show collections
+
+db.collection.find().pretty()
+db.conceptos.find().pretty()
+db.garantias.find().pretty()
+db.usuarios.find().pretty()
+db.biens.find().pretty()
+db.refyaccs.find().pretty()
+db.historial.find().pretty()
+db.bienrs.find().pretty()
+db.users.find().pretty()
+db.conceptoauxes.find().pretty()
+db.refyaccauxes.find().pretty()
+db.identitycounters.find().pretty()
+
+borrar todo:  
+db.conceptos.deleteMany({}) 
+db.historial.deleteMany({}) 
+db.usuarios.deleteMany({})
+db.biens.deleteMany({"_id" : ObjectId("61939c007aba9857803bac71")}) 
+db.bienrs.deleteMany({}) 
+db.users.deleteMany({}) 
+db.conceptoauxes.deleteMany({}) 
+db.refyaccauxes.deleteMany({}) 
+db.refyaccs.deleteMany({}) 
+
+eliminar de coleccion:
+db.biens.remove({"cedula" : "123456"});
+db.biens.deleteOne({"_id" : ObjectId("619452815931c41d1c150458")})
+db.conceptoauxes.deleteOne({"_id" : ObjectId("619d88c4d9468f2790feba1b")})
+db.usuarios.drop();

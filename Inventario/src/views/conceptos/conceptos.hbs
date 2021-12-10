@@ -1,0 +1,81 @@
+<div class="conceptos">
+    <div class="info">
+        <h3>Mobiliarios y equipos de computo registrados</h3>
+        <div class="alta">
+            <button type="submit" class="btnalta" onclick="location.href='/ingresar-mobiliario-equipo-computo'">Añadir mobiliario/equipo</button>
+        </div>
+        <div class="alta">
+            <button type="submit" class="btnalta" onclick="location.href='/mobiliario-equipo-computo-sin-alta'">Mobiliario/equipo sin alta</button>
+        </div>
+        <div class="tipoMobiliario">
+            <button type="submit" class="btntipo" onclick="location.href='/ingresar-tipo-mobiliario-equipo-computo'">Añadir tipo</button>
+        </div>
+
+        
+        <form action="/mobiliario-equipo-computo-exportar/" method="GET">
+            <div class="buscar">
+                <input type="text" name="buscar" class="entradabuscar" placeholder="Ubicación/Estado" id="entrada">
+                <a href="/mobiliario-equipo-computo">
+                    <button class="btnbuscar">Descargar Excel</button>
+                </a>
+            </div>
+        </form>
+    
+        <form action="/mobiliario-equipo-computo/" method="GET">
+            <div class="buscar">
+            <input type="text" name="buscar" class="entradabuscar" placeholder="Buscar..." id="entrada">
+            <button type="submit" class="btnbuscar" id="boton" value="Buscar">
+                <img src="../img/buscar.png" alt="">
+            </button>
+            </div> 
+        </form>
+        {{#if conceptos}}
+        <table class="table" width="50%" heigth="70px">
+            <thead>
+                <tr>
+                    <th>No. de resguardo</th>
+                    <th>No interno</th>
+                    <th>Nombre</th>
+                    <th>No. de serie</th>
+                    <th>Fecha</th>
+                    <th>Ubicacion</th>
+                    <th>Estado</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each conceptos}}
+                <tr id="resultado">
+                    <td>{{noresguardo}}</td>
+                    <td>{{nointerno}}</td>
+                    <td>{{nombre}}</td>
+                    <td>{{noserie}}</td>
+                    <td>{{fecha}}</td>
+                    <td>{{ubicacion}}</td>
+                    <td>{{status}}</td>
+                    <td>
+                        <a href="/conceptos/ver/{{_id}}">
+                            <button>
+                                <img src="../img/ver_30.png" alt="" title="Ver">
+                            </button>
+                        </a>
+                        <a href="/conceptos/editar/{{_id}}">
+                            <button>
+                                <img src="../img/edit_30.png" alt="" title="Editar" >
+                            </button>
+                        </a>
+                        <a href="/conceptos/garantia/{{_id}}">
+                            <button>
+                                <img src="../img/garantia.png" alt="" title="Añadir/Editar garantía"> 
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            <h4>No se encontraron registros...</h4>
+        {{/if}}
+    </div>
+</div>

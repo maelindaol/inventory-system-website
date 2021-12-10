@@ -1,0 +1,26 @@
+<div class="signup">
+    <h1>Registrarse:</h1>
+    <div class="form">
+        <form action="/users/signup" method="POST">
+            <h2>Cargo:</h2>
+            <div class="radios">
+                <input type="radio" name="cargo" value="jefeDep" id="jefeDep">
+                <label for="jefeDep">Jefe de departamento</label>
+            </div>
+            <div class="radios">
+                <input type="radio" name="cargo" value="jefeLab" id="jefeLab">
+                <label for="jefeLab">Jefe de laboratorio</label>
+            </div>
+            <div class="radios">
+                <input type="radio" name="cargo" value="auxLab" id="auxLab">
+                <label for="auxLab">Auxiliar de laboratorio</label>
+            </div>
+            <input type="text" name="nombre" class="form-control" placeholder="Nombre" required="true">
+            <input type="email" name="email" class="form-control" placeholder="Correo" required="true">
+            <input type="password" name="password" class="form-control" placeholder="Contraseña" required="true">
+            <button type="submit">Aceptar</button>
+
+            <a href="/users/login" class="login">Iniciar Sesión</a>
+        </form>
+    </div>
+</div>
